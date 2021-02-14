@@ -1,0 +1,334 @@
+@import '_variables';
+@import '_mixins';
+@import '_reboot';
+
+// Custom Buttons
+.btn {
+  padding: 13px 15px;
+  max-width: 173px;
+  width: 100%;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.btn-yellow {
+  background-color: $yellow;
+  border: 1px solid transparent;
+  color: $white;
+  &:hover {
+    border-color: $white;
+    background-color: $white;
+    color: $yellow;
+  }
+}
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid $white;
+  color: $white;
+  font-weight: 500;
+  path {
+    transition: fill .3s ease-in-out;
+  }
+  &:hover {
+    background-color: $white;
+    color: $black;
+    path {
+      fill: $black;
+    }
+  }
+}
+.btn-white {
+  background-color: $white;
+  color: $yellow;
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
+}
+
+// Custom Color Classes
+.text-yellow {
+  color: $yellow;
+}
+.text-blue {
+  color: $blue;
+}
+.text-green {
+  color: $green;
+}
+.text-light-yellow {
+  color: $yellow-bg;
+}
+.bg-light-green {
+  background: rgba($green, 0.1);
+  // @include colorAnimation('green');
+}
+.bg-light-blue {
+  background: rgba($blue, 0.1);
+}
+.bg-light-orange {
+  background: rgba($orange, 0.1);
+}
+.bg-light-yellow {
+  background: rgba($yellow-bg, 0.1);
+}
+.bg-light-red {
+  background: rgba($red, 0.1);
+}
+.bg-light-pink {
+  background: rgba($pink, 0.1);
+}
+.bg-light-dark {
+  background: $dark-light;
+}
+.bg-dark {
+  background: $dark;
+}
+.bg-yellow {
+  background: $yellow;
+}
+// Max-width
+.max-width-initial {
+  max-width: 100%;
+  @include mq('desktop-wide') {
+    max-width: initial;
+  }
+}
+
+// Header styles
+.header {
+  position: fixed;
+  padding: 20px 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $dark;
+  z-index: $z-header;
+  box-shadow: 0 3px 8px rgba($dark, 0.2);
+  &-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-items {
+    display: flex;
+    position: fixed;
+    padding: 80px 0;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: $black;
+    align-items: center;
+    flex-direction: column;
+    transition: left .3s ease-in-out;
+    &.active {
+      left: 0;
+    }
+  }
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    padding: .5rem 1rem;
+    @include bodyText('large');
+    @include menuEffect($yellow);
+    @include menuHover2();
+    a {
+      color: white;
+      transition: color .3s ease-in-out;
+    }
+  }
+  @include mq('tablet-wide') {
+    .hamburger {
+      display: none;
+    }
+    .nav-items {
+      position: static;
+      padding: 0;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      flex-direction: row;
+    }
+    .nav-item {
+      width: auto;
+      @include menuHover1();
+      @include bodyText('small');
+      opacity: 1; 
+    }
+  }
+}
+
+// Hamburger Button
+.hamburger {
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+
+  span {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 3px;
+    margin-bottom: 5px;
+    background: $white;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+      opacity 0.55s ease;
+
+    &:first-child {
+      transform-origin: 0% 0%;
+    }
+
+    &:nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
+  }
+
+  &.active span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-4px, -9px);
+
+    &:nth-last-child(3) {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    &:nth-last-child(2) {
+      transform: rotate(-45deg) translate(-3px, 10px);
+    }
+  }
+
+}
+
+// Page Styles
+.section {
+  .container {
+    position: relative;
+  }
+  .animated-box {
+    position: absolute;
+    background-color: $black;
+    border-radius: 5px;
+    animation: 1s bounceUpDown ease-in-out infinite alternate;
+  }
+  // Section Counter
+  &-counter {
+    display: flex;
+    margin: auto;
+    margin-bottom: 30px;
+    width: 63px;
+    height: 63px;
+    align-items: center;
+    background-color: $dark-light;
+    border-radius: 5px;
+    color: $yellow-light;
+    font-weight: 600;
+    justify-content: center;
+  }
+  // Icon List
+  .icon-lists {
+    li {
+      display: flex;
+      margin-bottom: 20px;
+      align-items: center;
+      line-height: 1.3;
+      .icon {
+        display: flex;
+        margin-right: 20px;
+        width: 38px;
+        height: 38px;
+        align-items: center;
+        border-radius: 3px;
+        font-weight: bold;
+        flex-shrink: 0;
+        justify-content: center;
+      }
+    }
+  }
+}
+// Section Get Started
+#get_started {
+  min-height: 100vh;
+  padding: 200px 0 50px;
+  p {
+      padding-left: 10px;
+      border-left: 2px solid white;
+  }
+  .animated-box {
+    width: 33px;
+    height: 33px;
+    bottom: -100px;
+    left: 220px;
+  }
+}
+
+// Footer 
+.footer {
+  background: $dark-light;
+  &-content {
+    padding: 45px 15px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  &-link {
+    display: inline-flex;
+    margin-bottom: 15px;
+    align-items: center;
+    font-size: 14px;
+    line-height: 2;
+    a {
+      color: $white;
+    }
+    svg {
+      margin-right: 9px;
+      path {
+        transition: fill .3s ease-in-out;
+      }
+    }
+    @include menuEffect($yellow);
+    @include menuHover1();
+  }
+  &-copyright {
+    padding: 8px 10px;
+    background: #0C0E11;
+    text-align: center;
+  }
+  @include mq('tablet') {
+    &-content {
+      padding: 80px 15px 45px;
+      flex-direction: row;
+    }
+  }
+}
+
+// Overlay
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($dark, 0.8);
+  z-index: $z-overlay;
+  animation: fadeIn .3s ease-in-out;
+}
+
+@keyframes bounceUpDown {
+  from { transform: translateY(-5px); }
+  to { transform: translateY(5px); }
+}
+
+@keyframes zoomInOut {
+  from { transform: rotate(-10deg); } 
+  to { transform: rotate(10deg); }
+}
