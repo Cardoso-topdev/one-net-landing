@@ -115,7 +115,7 @@
     .login-btn-group{
       display: flex;
       .btn-login{
-        @include mq('tablet-wide') {
+        @include mq('tablet-wide', max) {
           display: none!important;
         }
         &:hover{
@@ -291,7 +291,6 @@
       border-radius: 50px;
       svg {
         margin-left: 10px;
-        top: 5px;
         position: relative;
         path{
           stroke: white;
@@ -331,6 +330,10 @@
       margin: 20px 0 100px 0;
     }
     .frontlines-container{
+      @include mq('tablet', max) {
+        display: block;
+        margin-top: 50px;
+      }
       .left-part{
         margin-right: 40px;
         min-width: 300px;
@@ -339,18 +342,28 @@
           position: relative;
           transform: translate(0, -50%);
           text-align: left;
+          @include mq('tablet-wide', max) {
+            h3{
+              font-size: 18px;
+            }
+          }
           p{
             margin: 20px 0 50px 0;
             font-size: 17px;
+            @include mq('tablet-wide', max) {
+              font-size: 15px;
+              margin: 15px 0 30px 0;
+            }
           }
           a.btn{
+            width: 250px!important;
+            max-width: unset!important;
             background: white;
             border: 1px solid $primary-color;
             color: $primary-color;
             border-radius: 50px;
             svg {
               margin-left: 10px;
-              top: 5px;
               position: relative;
               path{
                 stroke: $primary-color;

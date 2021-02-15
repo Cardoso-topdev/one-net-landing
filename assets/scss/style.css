@@ -229,7 +229,7 @@ p {
     justify-content: space-between; }
     .header-nav .login-btn-group {
       display: flex; }
-      @media only screen and (min-width: 992px) {
+      @media only screen and (max-width: 991px) {
         .header-nav .login-btn-group .btn-login {
           display: none !important; } }
       .header-nav .login-btn-group .btn-login:hover {
@@ -395,7 +395,6 @@ p {
   border-radius: 50px; }
   #get_started .section-container a.btn svg {
     margin-left: 10px;
-    top: 5px;
     position: relative; }
     #get_started .section-container a.btn svg path {
       stroke: white;
@@ -419,6 +418,10 @@ p {
     color: #6C747B; }
   #plateform .section-container .section-title {
     margin: 20px 0 100px 0; }
+  @media only screen and (max-width: 767px) {
+    #plateform .section-container .frontlines-container {
+      display: block;
+      margin-top: 50px; } }
   #plateform .section-container .frontlines-container .left-part {
     margin-right: 40px;
     min-width: 300px; }
@@ -427,17 +430,25 @@ p {
       position: relative;
       transform: translate(0, -50%);
       text-align: left; }
+      @media only screen and (max-width: 991px) {
+        #plateform .section-container .frontlines-container .left-part div.content h3 {
+          font-size: 18px; } }
       #plateform .section-container .frontlines-container .left-part div.content p {
         margin: 20px 0 50px 0;
         font-size: 17px; }
+        @media only screen and (max-width: 991px) {
+          #plateform .section-container .frontlines-container .left-part div.content p {
+            font-size: 15px;
+            margin: 15px 0 30px 0; } }
       #plateform .section-container .frontlines-container .left-part div.content a.btn {
+        width: 250px !important;
+        max-width: unset !important;
         background: white;
         border: 1px solid #08758D;
         color: #08758D;
         border-radius: 50px; }
         #plateform .section-container .frontlines-container .left-part div.content a.btn svg {
           margin-left: 10px;
-          top: 5px;
           position: relative; }
           #plateform .section-container .frontlines-container .left-part div.content a.btn svg path {
             stroke: #08758D;
