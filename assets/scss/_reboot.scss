@@ -2,8 +2,7 @@ html,
 body {
   margin: 0;
   width: 100vw;
-  background-color: $dark;
-  color: $white;
+  background-color: #fff;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
   &::-webkit-scrollbar {
@@ -91,14 +90,15 @@ p {
   }
 }
 
-// // Collapse
-// .collapse {
-//   &:not(.show) {
-//     display: block;
-//     opacity: 0;
-//     transition: opacity .3s ease-in-out;
-//   }
-//   &.show {
-//     opacity: 1;
-//   }
-// }
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-4{
+  flex: 4;
+}
+
+.flex-6{
+  flex: 6;
+}
