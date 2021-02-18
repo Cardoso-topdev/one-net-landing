@@ -123,6 +123,12 @@ p {
   display: flex;
   justify-content: space-between; }
 
+.position-relative {
+  position: relative; }
+
+.position-absolute {
+  position: absolute; }
+
 .flex-4 {
   flex: 4; }
 
@@ -352,11 +358,6 @@ p {
 
 .section .container {
   position: relative; }
-.section .animated-box {
-  position: absolute;
-  background-color: #1E2225;
-  border-radius: 5px;
-  animation: 1s bounceUpDown ease-in-out infinite alternate; }
 .section-counter {
   display: flex;
   margin: auto;
@@ -418,7 +419,7 @@ p {
     color: #6C747B; }
   #plateform .section-container .section-title {
     margin: 20px 0 100px 0; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 991px) {
     #plateform .section-container .frontlines-container {
       display: block;
       margin-top: 50px; } }
@@ -525,25 +526,74 @@ p {
       padding: 80px 15px 45px;
       flex-direction: row; } }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.8);
-  z-index: 9;
-  animation: fadeIn .3s ease-in-out; }
+.boost-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #F5F5F5;
+  border-radius: 10px; }
+  .boost-container .ani-boost {
+    width: 278px;
+    height: 279px;
+    margin: 50px auto; }
+    .boost-container .ani-boost img {
+      display: block;
+      position: absolute;
+      max-width: none; }
+      .boost-container .ani-boost img.img-part1 {
+        width: 410px;
+        height: 326px;
+        left: -200px;
+        top: 20px; }
+      .boost-container .ani-boost img.img-part2 {
+        right: -262px;
+        width: 372px;
+        top: -73px; }
+    .boost-container .ani-boost svg {
+      position: absolute;
+      display: block; }
+    .boost-container .ani-boost .round1 {
+      top: 180px;
+      left: 63px; }
+    .boost-container .ani-boost .round2 {
+      top: 160px;
+      left: 68px; }
+    .boost-container .ani-boost .round3 {
+      top: 142px; }
+    .boost-container .ani-boost .svg-path path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 0;
+      animation: dash 2s ease-in-out; }
+    .boost-container .ani-boost .svg-path.round2 path {
+      filter: invert(100%);
+      animation: dash-reverse 3.8s ease-in-out forwards; }
+    .boost-container .ani-boost .svg-handle1 {
+      top: 177px;
+      left: 68px;
+      offset-path: path("M129.849 26.69C120.12 34.1304 108.929 39.4326 97.0091 42.2496C85.0891 45.0665 72.7086 45.3348 60.6777 43.0368C48.6468 40.7389 37.2368 35.9265 27.1941 28.9145C17.1515 21.9025 8.70263 12.849 2.40039 2.34644");
+      animation: move1 1.9s ease-in-out;
+      offset-distance: 0%; }
+    .boost-container .ani-boost .svg-handle2 {
+      top: 157px;
+      left: 70px;
+      offset-path: path("M1.90137 70.2511C16.0849 80.6739 32.4716 87.7019 49.7993 90.7937C67.127 93.8854 84.9332 92.9585 101.846 88.0842C118.759 83.21 134.328 74.5185 147.352 62.6793C160.377 50.8401 170.51 36.1692 176.971 19.7966");
+      animation: move_reverse 12s;
+      offset-distance: 1000%; }
+    .boost-container .ani-boost .svg-handle3 {
+      offset-path: path("M252.789 78.1905C235.733 101.271 211.952 118.506 184.71 127.53C157.467 136.555 128.1 136.926 100.638 128.593C73.1763 120.259 48.9672 103.631 31.3339 80.9889C13.7006 58.3472 3.50763 30.8026 2.1543 2.13647");
+      animation: move1 1.9s ease-in-out;
+      offset-distance: 0%; }
 
-@keyframes bounceUpDown {
+@keyframes move1 {
   from {
-    transform: translateY(-5px); }
-  to {
-    transform: translateY(5px); } }
-@keyframes zoomInOut {
+    offset-distance: 1000%; } }
+@keyframes move_reverse {
   from {
-    transform: rotate(-10deg); }
-  to {
-    transform: rotate(10deg); } }
+    offset-distance: 0%; } }
+@keyframes dash {
+  from {
+    stroke-dashoffset: -1000; } }
+@keyframes dash-reverse {
+  from {
+    stroke-dashoffset: 1000; } }
 
 /*# sourceMappingURL=style.css.map */

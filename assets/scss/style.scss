@@ -235,12 +235,6 @@
   .container {
     position: relative;
   }
-  .animated-box {
-    position: absolute;
-    background-color: $black;
-    border-radius: 5px;
-    animation: 1s bounceUpDown ease-in-out infinite alternate;
-  }
   // Section Counter
   &-counter {
     display: flex;
@@ -330,7 +324,7 @@
       margin: 20px 0 100px 0;
     }
     .frontlines-container{
-      @include mq('tablet', max) {
+      @include mq('tablet-wide', max) {
         display: block;
         margin-top: 50px;
       }
@@ -442,24 +436,104 @@
   }
 }
 
-// Overlay
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba($bk-color, 0.8);
-  z-index: $z-overlay;
-  animation: fadeIn .3s ease-in-out;
+.boost-container{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #F5F5F5;
+  border-radius: 10px;
+  .ani-boost{
+    width: 278px;
+    height: 279px;
+    margin: 50px auto;
+    img{
+      display: block;
+      position: absolute;
+      max-width: none;
+      &.img-part1{
+        width: 410px;
+        height: 326px;
+        left: -200px;
+        top: 20px;
+      }
+      &.img-part2{
+        right: -262px;
+        width: 372px;
+        top: -73px;
+      }
+    }
+    svg{
+      position: absolute;
+      display: block;
+    }
+    .round1{
+      top: 180px;
+      left: 63px;
+    }
+    .round2{
+      top: 160px;
+      left: 68px;
+    }
+    .round3{
+      top: 142px;
+    }
+    .svg-path {
+
+      path{
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+        animation: dash 2s ease-in-out;
+      }
+      &.round2 path{
+        filter: invert(100%);
+        animation: dash-reverse 3.8s ease-in-out forwards;
+      }
+    }
+
+    .svg-handle1{
+      top: 177px;
+      left: 68px;
+      offset-path: path('M129.849 26.69C120.12 34.1304 108.929 39.4326 97.0091 42.2496C85.0891 45.0665 72.7086 45.3348 60.6777 43.0368C48.6468 40.7389 37.2368 35.9265 27.1941 28.9145C17.1515 21.9025 8.70263 12.849 2.40039 2.34644');
+      animation: move1 1.9s ease-in-out;
+      offset-distance: 0%;
+    }
+
+    .svg-handle2{
+      top: 157px;
+      left: 70px;
+      offset-path: path('M1.90137 70.2511C16.0849 80.6739 32.4716 87.7019 49.7993 90.7937C67.127 93.8854 84.9332 92.9585 101.846 88.0842C118.759 83.21 134.328 74.5185 147.352 62.6793C160.377 50.8401 170.51 36.1692 176.971 19.7966');
+      animation: move_reverse 12s ;
+      offset-distance: 1000%;
+    }
+
+    .svg-handle3{
+      offset-path: path('M252.789 78.1905C235.733 101.271 211.952 118.506 184.71 127.53C157.467 136.555 128.1 136.926 100.638 128.593C73.1763 120.259 48.9672 103.631 31.3339 80.9889C13.7006 58.3472 3.50763 30.8026 2.1543 2.13647');
+      animation: move1 1.9s ease-in-out;
+      offset-distance: 0%;
+    }
+  }
+}
+@keyframes move1 {
+  from {
+    offset-distance: 1000%;
+  }
 }
 
-@keyframes bounceUpDown {
-  from { transform: translateY(-5px); }
-  to { transform: translateY(5px); }
+@keyframes move_reverse {
+  from {
+    offset-distance: 0%;
+  }
 }
 
-@keyframes zoomInOut {
-  from { transform: rotate(-10deg); } 
-  to { transform: rotate(10deg); }
+@keyframes dash {
+  from {
+    stroke-dashoffset: -1000;
+  }
 }
+
+@keyframes dash-reverse {
+  from {
+    stroke-dashoffset: 1000;
+  }
+}
+
+
